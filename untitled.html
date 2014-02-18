@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Title</title>
+<style>
+#box1 {
+    width: 50%;
+    background-color: red;
+    float: left;
+    }
+    
+#box2 {
+    width: 50%;
+    background-color: white;
+    float: left;
+    }
+    
+.body {
+    padding-left: 26px;
+}
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<div class='container'>
+    <p class='header'>
+        Definition of <span class ='word'>aberrant</span>   
+    </p>
+
+    <div id='box1'>
+        <span class='header'></span>
+        <p class='body'>
+            Some text here
+        </p>
+    </div>
+
+    <div id='box2'>
+        <p class='header paragraph coolthing'>
+            aberrant
+        </p>
+        <p class='body'>
+            Some text here
+        </p>
+    </div>
+<script>
+$(document).ready(function() {
+    $('.word').click(function() {
+        var definition = "deviating from the ordinary, usual, or normal type; exceptional; abnormal.";
+        $('#box2 .body').text(definition);
+    });
+});
+</script>
+
+</div>
+
+</html>
