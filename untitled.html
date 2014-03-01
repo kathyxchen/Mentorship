@@ -1,4 +1,5 @@
 <html>
+
 <head>
 <title>Title</title>
 <style>
@@ -17,14 +18,13 @@
 .body {
     padding-left: 26px;
 }
-
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 
 <div class='container'>
     <p class='header'>
-        Definition of <span class ='word'>aberrant</span>   
+        Definition of <span class ='word'>aberrant</span> 
     </p>
 
     <div id='box1'>
@@ -35,7 +35,7 @@
     </div>
 
     <div id='box2'>
-        <p class='header paragraph coolthing'>
+        <p class='header paragraph'>
             aberrant
         </p>
         <p class='body'>
@@ -43,14 +43,58 @@
         </p>
     </div>
 <script>
+
+function updateDefinition() {
+    var word = getSelectionText();
+    $.ajax(
+        {'url':'http://api.duckduckgo.com/?q=define+' + word + '&format=json',
+        'type':'GET', 
+        dataType:'jsonp', 
+        success: function(x) {
+            var definition = x.Definition;
+            $('#box2 .body').text(definition);}
+        });
+    }
+            
+function getSelectionText() {
+    var text = "";
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+        } 
+    else if (document.selection && document.selection.type != "Control") {
+        text = document.selection.createRange().text;
+        }
+    return text;
+    } 
+    
 $(document).ready(function() {
-    $('.word').click(function() {
-        var definition = "deviating from the ordinary, usual, or normal type; exceptional; abnormal.";
-        $('#box2 .body').text(definition);
+    var a_is_pressed = false;
+    var d_is_pressed = false;
+    $(document.body).keydown(function (evt) {
+        if (evt.keyCode == 65) { 
+            a_is_pressed = true;
+            }
+        
+        if (evt.keyCode == 68) {
+            d_is_pressed = true;
+            }
+        
+        if (a_is_pressed && d_is_pressed) {
+            updateDefinition();
+        }         
     });
+
+    $(document.body).keyup(function (evt) {
+        if (evt.keyCode == 65) { 
+            a_is_pressed = false;
+        }
+        
+        if (evt.keyCode == 68) {
+            d_is_pressed = false;
+        }
+    });    
 });
+
 </script>
-
 </div>
-
 </html>
