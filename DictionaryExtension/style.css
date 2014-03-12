@@ -1,0 +1,15 @@
+#dictionary_extension_definition 
+	{
+	position: fixed;
+	top: 5%;
+    right: 0;
+    width: 20%;
+    height: auto;
+    padding: 5px;
+    color: black;
+    font-size: 12px;
+    font-family: Verdana;
+    background-color: white;
+    }
+
+
