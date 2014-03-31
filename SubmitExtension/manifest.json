@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+
+  "name": "Submission",
+  "description": "This extension submits a googledoc to an email",
+  "version": "1.0",
+  "permissions": ["http://*/*", "tabs", "https://*/*"],
+  "browser_action": {
+    "default_title": "Submit",
+    "default_popup": "popup.html"
+  }
+}

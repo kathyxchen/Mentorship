@@ -1,0 +1,76 @@
+.document {
+    display: none;
+    margin: 0 0 8px;
+    padding: 5px;
+    font: normal 11px courier !important;
+    border: solid 1px #bd8;
+}
+.errors {
+    display: none;
+    margin: 0 0 8px;
+    padding: 5px;
+    font: normal 11px courier !important;
+    border: solid 1px #bd8;
+}
+
+#month{
+	float:left;
+	top:2px;
+	left: 2px;
+	width:30px;
+}
+#day{
+
+	float:left;
+	top:2px;
+	left: 2px;
+	width:30px;
+}
+#year{
+	float:left;
+	top:2px;
+	left: 2px;
+	width:60px;
+}
+
+#hour{
+	float:left;
+	top:100px;
+}
+#mins{
+	float:left;
+	top:100px;
+}
+#ampm{
+	float:left;
+	top:100px;
+}
+#submit{
+	position: relative;
+    top:35px; 
+}
+
+span{
+    display: inline-block;
+    }
+
+    span input { 
+        display: block; 
+        position: relative; 
+        top: -3em; 
+        text-align: center;
+    } 
+
+    span label { 
+        display: block; 
+        padding-top: 1.5em; 
+        text-align: center;
+    } 
+
+body{
+	width:200px;
+	height:200px;
+}
+label {
+    font: normal 12px courier !important;
+}

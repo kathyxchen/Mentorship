@@ -1,0 +1,57 @@
+<html>
+<head>
+<link rel='stylesheet' href='style.css' />
+</head>
+<body>
+<div class='errors'>
+
+</div>
+<div class='document'>
+	
+</div>
+<div class='container'>
+<form id="myform" method="post">
+<div class='email'>
+	<input type = 'text' id="email"/>
+	<label for="email">Email</label>
+</div>
+<div class='box'>
+	<span class='month'>
+		<input type = 'text' id="month"/>
+		<label for="month">MM</label>
+	</span>
+
+	<span class='day'>
+		<input type = 'text' id="day"/>
+		<label for="day">DD</label>
+	</span>
+
+	<span class='year'>
+		<input type = 'text' id="year"/>
+		<label for="year">YYYY</label>
+	</span>
+</div>
+<div class='box'>
+	<div class='time'>
+		<select id='hour'> 
+		</select>
+		<select id='mins'> 
+			<option>00</option>
+		</select>
+		<select id='ampm'> 
+			<option>AM</option>
+			<option>PM</option>
+		</select>
+	</div>
+</div>
+</div>
+<div class='box'>
+	<span id='submit'><input type ="submit" value="Submit"/></span>
+</div>	
+</form>
+
+
+<script src="jquery.js"></script>
+<script src="content.js"></script>
+</body>
+</html>
