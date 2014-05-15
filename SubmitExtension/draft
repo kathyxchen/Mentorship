@@ -1,0 +1,9 @@
+$.post('/register', data, function(resp) {
+	if(resp.status === 'success') {
+	chrome.storage.local.set({'user_id': resp.user_id });
+	}
+})
+
+$.post.....
+	var user_id = chrome.storage.local.get('user-id') // use this in post req
+

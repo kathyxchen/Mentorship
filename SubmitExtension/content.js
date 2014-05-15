@@ -12,11 +12,7 @@ function fillButtons() {
 }
 
 function submit() {
-	$.ajax(
-        {'url':'https://api.duckduckgo.com/?q=define+dictionary&format=json',
-        'type':'POST', 
-        dataType:'json', 
-        });
+	
     
 	$('#submit').click(function(event){
 		var regex = /\S+@\S+\.\S+/;
@@ -24,7 +20,7 @@ function submit() {
 		var mon = $('#month').val();
 		var day = $('#day').val();
 		var yr = $('#year').val();
-		
+
    		if(mon == '' || day == '' || yr == '' 
    			|| emailaddr == ''){
       		$('.errors').text('Input cannot be left blank');
@@ -56,13 +52,19 @@ function submit() {
     		}
 
    		else{
-   			if(!confirm('Paper submission sending to ' + $('#email').val() 
+   			var params = {'email': $('#email').val(), 'mon':$('#month').val(), 'day':$('#day').val(), 'yr':$('#year').val(), 
+			'hr': $('#hour').val(), 'mins':$('#mins').val(), 'ampm':$('#ampm').val()};
+
+			$.post('http://localhost:5000/schedule',params,function(e) { console.log(e); });
+   			
+        /*if(!confirm('Paper submission sending to ' + $('#email').val() 
    			+ ' on ' + $('#month').val() + '/' + $('#day').val() + '/' +
    			$('#year').val() + ' at ' + $('#hour').val() + ':' + $('#mins').val() + $('#ampm').val() + '.')) {
         	event.preventDefault();
         	return;
-    		}
-    		$('.document').text('Paper submission sending to ' + emailaddr 
+    		}*/
+    		
+        $('.document').text('Paper submission sending to ' + emailaddr 
    			+ ' on ' + mon + '/' + day + '/' + yr + ' at ' + $('#hour').val() 
    			+ ':' + $('#mins').val() + $('#ampm').val() + '.');
    			$('.document').show();
@@ -75,4 +77,5 @@ function submit() {
 $(document).ready(function() {
 	fillButtons();
 	submit();
+
 });
